@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Styles ─────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8ecf8 50%, #f5f3ff 100%);
+  min-height: 100vh;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Glass Card ──────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  box-shadow: 0 16px 48px rgba(99, 102, 241, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ── Inputs ──────────────────────────────────────────────── */
+.input-field {
+  @apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/60 backdrop-blur-sm
+         text-gray-800 placeholder-gray-400 outline-none transition-all duration-300;
+}
+
+.input-field:focus {
+  @apply border-primary-400 ring-4 ring-primary-100 bg-white;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white
+         bg-gradient-to-r from-primary-500 to-primary-600 shadow-lg shadow-primary-200
+         hover:from-primary-600 hover:to-primary-700 hover:shadow-xl hover:shadow-primary-300
+         active:scale-[0.97] transition-all duration-300;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-gray-600
+         hover:bg-gray-100/80 hover:text-gray-800 active:scale-[0.97]
+         transition-all duration-300;
+}
+
+.btn-danger {
+  @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white
+         bg-gradient-to-r from-red-500 to-rose-500 shadow-lg shadow-red-200
+         hover:from-red-600 hover:to-rose-600 hover:shadow-xl hover:shadow-red-300
+         active:scale-[0.97] transition-all duration-300;
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* staggered children */
+.stagger > * { animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger > *:nth-child(4) { animation-delay: 0.16s; }
+.stagger > *:nth-child(5) { animation-delay: 0.20s; }
+.stagger > *:nth-child(6) { animation-delay: 0.24s; }
+.stagger > *:nth-child(7) { animation-delay: 0.28s; }
+.stagger > *:nth-child(8) { animation-delay: 0.32s; }
+.stagger > *:nth-child(9) { animation-delay: 0.36s; }
+.stagger > *:nth-child(10) { animation-delay: 0.40s; }
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a5b4fc; }
+
+/* ── Toast overrides ─────────────────────────────────────── */
+.toaster-wrapper div[role="status"] {
+  font-family: 'Inter', system-ui, sans-serif !important;
+}

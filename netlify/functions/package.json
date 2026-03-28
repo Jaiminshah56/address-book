@@ -1,0 +1,11 @@
+{
+  "name": "address-book-netlify-functions",
+  "version": "1.0.0",
+  "description": "Dependencies for Netlify serverless functions",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.0",
+    "serverless-http": "^3.2.0"
+  }
+}
