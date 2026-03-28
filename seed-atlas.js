@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
 /**
  * Seed script for MongoDB Atlas (cloud).
  * Usage: set MONGODB_URI env var, then run: node seed-atlas.js
