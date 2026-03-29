@@ -14,6 +14,9 @@
   to = "/.netlify/functions/api/:splat"
   status = 200
 
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
+
 # SPA fallback – let React Router handle all other routes
 [[redirects]]
   from = "/*"
